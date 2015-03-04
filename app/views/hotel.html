@@ -1,0 +1,31 @@
+<!-- http://public.opendatasoft.com/api/records/1.0/search?dataset=hotels-classes-en-france&q=recordid:hotels_classescsvzip/3 -->
+<ng-include src="'views/header.html'"></ng-include>
+
+<br/>
+
+<div class="row">
+	<div class="col-sm-6 col-xs-12">
+		<address>
+			<i class="fa fa-home" data-toggle="tooltip" data-placement="top" title="Hôtel">&nbsp;</i><strong>{{hotel.fields.nom_site}}</strong><br/>
+			<i class="fa fa-road" data-toggle="tooltip" data-placement="top" title="Adresse">&nbsp;</i>{{hotel.fields.adresse}}
+		</address>
+
+		<div>
+			<i class="fa fa-clock-o" data-toggle="tooltip" data-placement="top" title="Email">&nbsp;</i>{{hotel.record_timestamp}}
+		</div>
+	</div>
+	<div class="col-sm-6 col-xs-12">
+		<ui-gmap-google-map zoom="map.zoom" center="map.center" options="map.options" draggable="true">
+			<ui-gmap-marker coords="map.coords" idKey="hotel.recordid"></ui-gmap-marker>
+		</ui-gmap-google-map>
+	</div>
+</div>
+
+<ng-include src="'views/footer.html'"></ng-include>
+
+<script type="text/javascript">
+    /*Active les tooltips de bootstrap*/
+    $(function () { 
+        $("[data-toggle='tooltip']").tooltip(); 
+    });
+</script>
